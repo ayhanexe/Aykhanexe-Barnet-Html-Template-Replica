@@ -1,0 +1,409 @@
+@import "./variables";
+@import "./reboot";
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  #mini-header {
+    background-color: #3648b2;
+  }
+  #header {
+    height: 100px;
+
+    .menu-container {
+      height: 100%;
+      display: flex;
+      gap: 5px;
+
+      .menu-item {
+        height: 100%;
+        padding: 0 20px;
+        position: relative;
+        transition: color 0.3s ease-out;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+
+        &.active {
+          background-color: $defaultPink;
+          color: white;
+        }
+
+        a {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+        }
+
+        &::before {
+          content: "";
+          width: 0;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+          background-color: $defaultPink;
+          transition: width 0.3s ease-out;
+        }
+
+        &:hover {
+          color: white !important;
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+
+      * {
+        z-index: 1;
+      }
+
+      .custom-menu-dropdown {
+        width: 250px;
+        height: 0;
+        background-color: white;
+        color: black !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10px;
+        overflow: hidden;
+        transition: height 0.2s ease-out;
+
+        .custom-menu-dropdown-item {
+          height: 50px;
+          flex: 0 0 50px;
+          padding-left: 15px;
+
+          transition: background-color 0.3s ease-out, color 0.3s ease-out,
+            padding-left 0.3s ease-out;
+
+          &:hover {
+            background-color: blue;
+            color: white !important;
+            padding-left: 25px;
+          }
+        }
+      }
+    }
+  }
+  #banner {
+    height: 300px;
+    background: url(http://html.commonsupport.xyz/2019/Barnet/images/background/3.jpg)
+      center no-repeat;
+    background-size: cover;
+    color: white !important;
+    position: relative;
+
+    * {
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+main {
+  aside {
+    height: 200px;
+    .categories {
+      list-style: none;
+
+      li::before {
+        content: "\2022";
+        color: rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    position: relative;
+
+    .card-item {
+      max-width: 250px;
+      position: relative;
+
+      &:hover {
+        .controls {
+          opacity: 1;
+          transform: translate(-50%, -70px);
+        }
+      }
+
+      .controls {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -60px);
+        display: flex;
+        gap: 0 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+
+        .control-item {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          font-size: 1em;
+          border-radius: 50%;
+          transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+          &:hover {
+            background-color: $defaultPink;
+            color: white !important;
+          }
+        }
+      }
+      //   .image-container {
+
+      //   }
+    }
+  }
+}
+
+footer {
+  position: relative;
+
+  #subscribe {
+    width: 90%;
+    height: 150px;
+    background: url(http://html.commonsupport.xyz/2019/Barnet/images/background/shape-1.jpg)
+      center no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .footer {
+    height: 500px;
+    background: url(http://html.commonsupport.xyz/2019/Barnet/images/background/1.jpg)
+      center no-repeat;
+    background-size: cover;
+    position: relative;
+
+    * {
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#25255a, 0.95);
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.color-pink {
+  color: $defaultPink !important;
+}
+
+.bg-pink {
+  background-color: $defaultPink !important;
+  color: white !important;
+}
+
+#get-start {
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+  &:hover {
+    background-color: black !important;
+    color: white !important;
+  }
+}
+
+#search-area {
+  cursor: pointer;
+  position: relative;
+
+  .search-area {
+    width: auto;
+    height: auto;
+    background-color: white;
+    padding: 30px 50px;
+    position: absolute;
+    top: 200%;
+    right: 50%;
+    z-index: 55;
+    visibility: hidden;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  &.active {
+    .search-area {
+      visibility: visible;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.fake-input-container {
+  width: 250px;
+  height: 50px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #dfe1e96e;
+  padding: 0 20px;
+
+  .fake-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .search-icon {
+    font-size: 0.85em;
+  }
+}
+
+.noUi-target {
+  margin: 20px 0;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.noUi-base {
+  height: 3px !important;
+}
+
+.noUi-connect {
+  left: 10px !important;
+  background-color: $defaultPink !important;
+}
+
+.noUi-handle {
+  width: 15px !important;
+  height: 15px !important;
+  background-color: $defaultPink;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 50%;
+  cursor: pointer;
+  right: -10px !important;
+  top: -6px !important;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.twitter-item {
+  .twitter-item-header {
+    align-items: start;
+    gap: 20px;
+    i {
+      margin-top: 6px;
+    }
+    .twitter-item-desc {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.socials {
+  gap: 10px;
+  flex-wrap: wrap;
+  .social-item {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px !important;
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+input.text-white::placeholder {
+  color: white !important;
+}
+
+a.hover-black {
+  background-color: white !important;
+  color: black !important;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+  &:hover {
+    background-color: black !important;
+    color: white !important;
+  }
+}
+
+.to-up-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: $defaultPink;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  transition: all 0.3s ease-out;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#mobile-menu-toggler {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+
+@import "./media";

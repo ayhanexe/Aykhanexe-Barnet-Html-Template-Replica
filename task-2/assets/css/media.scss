@@ -1,0 +1,91 @@
+@media all and (max-width: 1200px) {
+  .menu-item {
+    padding: 0 !important;
+    background-color: transparent !important;
+    color: black !important;
+    i {
+      font-size: 0.7 em;
+    }
+
+    &:hover,
+    &.active,
+    a {
+      color: black !important;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: 992px) {
+  #subscribe {
+    height: 250px !important;
+  }
+  .footer {
+    height: auto !important;
+    padding-top: 150px !important;
+  }
+}
+
+@media all and (max-width: 1010px) {
+  header {
+    #header {
+      .navbar-brand {
+        width: 100%;
+      }
+      #mobile-menu-toggler {
+        display: block;
+      }
+      .menu-container {
+        width: 100%;
+        height: 0;
+        background-color: white;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        z-index: 2;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+        overflow: hidden;
+
+        &.active {
+          height: auto;
+        }
+
+        .menu-item {
+          width: 100%;
+          background-color: #333333 !important;
+          padding: 15px 0 15px 10px !important;
+          position: relative !important;
+          z-index: 0 !important;
+          overflow: visible !important;
+          cursor: pointer;
+
+          &.active ~ .menu-item {
+            z-index: -1 !important;
+          }
+
+          a {
+            width: 100%;
+            color: white !important;
+            justify-content: space-between !important;
+            overflow: hidden;
+            padding-right: 20px;
+          }
+
+          .custom-menu-dropdown {
+            width: 100%;
+            z-index: 4 !important;
+            position: absolute;
+            a.custom-menu-dropdown-item {
+              color: black !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

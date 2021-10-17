@@ -1,0 +1,13 @@
+a {
+  color: inherit !important;
+  text-decoration: none;
+
+  &:not(.no-hover):hover {
+    color: #ff4747 !important;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
